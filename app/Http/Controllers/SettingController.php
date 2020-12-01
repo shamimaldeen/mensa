@@ -127,11 +127,4 @@ class SettingController extends Controller
 
 
 
-
-
-  
-
- 
-
-
 }

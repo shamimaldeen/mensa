@@ -45,6 +45,21 @@
 
 </head>
 
+@php
+ $profile=DB::table('profiles')->get();
+ $about=DB::table('abouts')->get();
+ $experience =DB::table('resumes')->where(['type' => 'EXPERIENCE'])->get();
+ $education =DB::table('resumes')->where(['type' => 'EDUCATION'])->get();
+
+ $portfolio=DB::table('portfolios')->get();
+ $post=DB::table('posts')->get();
+ $service=DB::table('services')->get();
+ $settings=DB::table('settings')->get();
+ $skills=DB::table('skills')->get();
+
+
+@endphp
+
 <body data-spy="scroll" data-target="#navbarSupportedContent" data-offset="0">
     <!--====== Color-Panel =====-->
     <section class="colorRang">
@@ -123,7 +138,7 @@
     <!-- Parallax Background Starts-->
     <div class="parallax-bg">
         <div class="meta vh-100 bg-overlay"
-            style="background: url({{ asset('public/frontend/images/slider-1.jpg')}});background-size: cover;background-position: center;background-repeat: no-repeat;">
+            style="background: url({{ asset($settings[0]->banner)}});background-size: cover;background-position: center;background-repeat: no-repeat;">
             <div id="particles-js"></div>
             <div class="container flex-centering text-center vh-100 ">
                 <div class="row sh-above">
@@ -131,18 +146,14 @@
                         <div class="first-page-text text-white-persist">
                             <div class="first-page-text-headings">
                                 <h1 class="fw-medium animated fadeInDownBig">Welcome</h1>
-                                <h1 class="display-4 fw-semi-bold animated fadeInDownBig delay-1s">I am Ava
-                                    James
+                                <h1 class="display-4 fw-semi-bold animated fadeInDownBig delay-1s">I am {{ $profile[0]->name }}
                                 </h1>
 
                                 <div class="custom-border sh-above">
                                     <div class="line-border"></div>
                                 </div>
 
-                                <p class="dash line text-white-persist-e fw-regular animated fadeInDownBig delay-2s">UI
-                                    Designer -
-                                    Photographer -
-                                    Web Developer</p>
+                                <p class="dash line text-white-persist-e fw-regular animated fadeInDownBig delay-2s">{{ $profile[0]->designation }}</p>
 
                                 <div class="custom-border sh-above">
                                     <div class="line-border"></div>
@@ -181,7 +192,7 @@
                 <div class="col-lg-4 mx-auto flex-centering mb-5 mb-lg-0">
                     <div class="img-styled">
                         <div class="border-styled primary-border">
-                            <img src="{{ asset('public/frontend/images/about.jpg')}}" alt="about-img" class="img-fluid">
+                            <img src="{{ asset($about[0]->image)}}" alt="about-img" class="img-fluid">
                         </div><!-- end border-styled -->
                     </div><!-- end img-styled -->
                 </div><!-- end column -->
@@ -192,20 +203,12 @@
                             <h1 class="sh-above2 position-relative"><span
                                     class="heading-border primary-color">About</span> Me</h1>
                         </div><!-- end heading -->
-                        <h4 class="text-black-5 fw-semi-bold about-margin">I am Ava James, Web Designer & Web
-                            Developer </h4>
-                        <p class="text-black-5 about-margin">I am a web developer and Web
-                            Developer living in California, USA. I spend my days with my hands in many different areas
-                            of web development from back end programming to front end engineering.
-
-                            I can provide clean code and pixel perfect design. I also make website more & more
-                            interactive with web animations.
-                            I am a passionate with my work who loves simplicity in
-                            things and crafts beautiful user interfaces with love.
+                        <h4 class="text-black-5 fw-semi-bold about-margin">I am {{ $profile[0]->name }}, {{ $profile[0]->designation }} </h4>
+                        <p class="text-black-5 about-margin">{!! $about[0]->description !!}
                         </p>
 
                         <div class="about-btns pt-1">
-                            <a href="{{ asset('public/pdf/Research.pdf') }}" download 
+                            <a href="{{ asset('public/pdf/s.pdf') }}" download 
                                 class="btn on-bg-color bg-primary-color bg-primary-colorh fw-semi-bold br0">Download
                                 Resume</a>
                             <a href="#"
@@ -253,6 +256,9 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="experience" role="tabpanel" aria-labelledby="experience-tab">
 
+
+                        @foreach($experience as $ex)
+
                         <div class="resume-details text-black-3">
                             <div class="row">
                                 <div class="col-lg-2 col-md-3 circle px-0 px-md-2">
@@ -261,49 +267,19 @@
                                     </div><!-- end column -->
                                 </div><!-- end column -->
                                 <div class="col-lg-10 col-md-9 mr-auto resume-box bg-white shadow">
-                                    <h4>Website Developer</h4>
-                                    <h6 class="mt-md-2 mt-1 mb-md-3 mb-2 primary-color">ABC Company</h6>
-                                    <p class="text-black-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                        veniam.</p>
+                                    <h4> {{ $ex->title }}</h4>
+                                    <h6 class="mt-md-2 mt-1 mb-md-3 mb-2 primary-color">{{ $ex->institute }}</h6>
+                                    <p class="text-black-5">{!! $ex->description !!}</p>
                                 </div><!-- end column -->
                             </div><!-- end row -->
                         </div><!-- end resume-details -->
-                        <div class="resume-details text-black-3">
-                            <div class="row">
-                                <div class="col-lg-2 col-md-3 circle px-0 px-md-2">
-                                    <div class="col-md-8 px-0 duration">
-                                        <p>February 2018 to 2019</p>
-                                    </div><!-- end column -->
-                                </div><!-- end column -->
-                                <div class="col-lg-10 col-md-9 mr-auto resume-box bg-white shadow">
-                                    <h4>Website Designer</h4>
-                                    <h6 class="mt-md-2 mt-1 mb-md-3 mb-2 primary-color">ABC Company</h6>
-                                    <p class="text-black-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                        veniam.</p>
-                                </div><!-- end column -->
-                            </div><!-- end row -->
-                        </div><!-- end resume-details -->
-                        <div class="resume-details text-black-3">
-                            <div class="row">
-                                <div class="col-lg-2 col-md-3 circle px-0 px-md-2">
-                                    <div class="col-md-8 px-0 duration">
-                                        <p>January 2016 to 2018</p>
-                                    </div><!-- end column -->
-                                </div><!-- end column -->
-                                <div class="col-lg-10 col-md-9 mr-auto resume-box bg-white shadow">
-                                    <h4>UI Developer</h4>
-                                    <h6 class="mt-md-2 mt-1 mb-md-3 mb-2 primary-color">ABC Company</h6>
-                                    <p class="text-black-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                        veniam.</p>
-                                </div><!-- end column -->
-                            </div><!-- end row -->
-                        </div><!-- end resume-details -->
+                        @endforeach
+               
 
                     </div><!-- end tab-pane -->
                     <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
+
+                         @foreach($education as $edu)
 
                         <div class="resume-details text-black-3">
                             <div class="row">
@@ -313,46 +289,14 @@
                                     </div><!-- end column -->
                                 </div><!-- end column -->
                                 <div class="col-lg-10 col-md-9 mr-auto resume-box bg-white shadow">
-                                    <h4>M.Sc Computer Science</h4>
-                                    <h6 class="mt-md-2 mt-1 mb-md-3 mb-2 primary-color">XYZ University</h6>
-                                    <p class="text-black-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                        veniam.</p>
+                                    <h4>{{ $edu->title }}</h4>
+                                    <h6 class="mt-md-2 mt-1 mb-md-3 mb-2 primary-color">{{ $edu->institute }}</h6>
+                                    <p class="text-black-5">{!! $edu->description !!}</p>
                                 </div><!-- end column -->
                             </div><!-- end row -->
                         </div><!-- end resume-details -->
-                        <div class="resume-details text-black-3">
-                            <div class="row">
-                                <div class="col-lg-2 col-md-3 circle px-0 px-md-2">
-                                    <div class="col-md-8 px-0 duration">
-                                        <p>January 2010 to 2014</p>
-                                    </div><!-- end column -->
-                                </div><!-- end column -->
-                                <div class="col-lg-10 col-md-9 mr-auto resume-box bg-white shadow">
-                                    <h4>B.Sc Computer Science</h4>
-                                    <h6 class="mt-md-2 mt-1 mb-md-3 mb-2 primary-color">XYZ University</h6>
-                                    <p class="text-black-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                        veniam.</p>
-                                </div><!-- end column -->
-                            </div><!-- end row -->
-                        </div><!-- end resume-details -->
-                        <div class="resume-details text-black-3">
-                            <div class="row">
-                                <div class="col-lg-2 col-md-3 circle px-0 px-md-2">
-                                    <div class="col-md-8 px-0 duration">
-                                        <p>January 2008 to 2010</p>
-                                    </div><!-- end column -->
-                                </div><!-- end column -->
-                                <div class="col-lg-10 col-md-9 mr-auto resume-box bg-white shadow">
-                                    <h4>Higher School Graduation</h4>
-                                    <h6 class="mt-md-2 mt-1 mb-md-3 mb-2 primary-color">XYZ College</h6>
-                                    <p class="text-black-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                        veniam.</p>
-                                </div><!-- end column -->
-                            </div><!-- end row -->
-                        </div><!-- end resume-details -->
+                          @endforeach
+                      
 
                     </div><!-- end tab-pane -->
                 </div><!-- end tab-content -->
@@ -385,14 +329,14 @@
             <div class="row">
                 <div class="col-lg-8 col-10 mx-sm-auto ml-auto fw-medium">
 
-
+                   @foreach($skills as $skill)
                     <div class="pbar-wrapper">
                         <div class="progress bg-white-c">
-                            <div class="progress-bar bg-primary-color on-bg-color pr-5 " style="width: 85%" role="progressbar">WordPress</div>
+                            <div class="progress-bar bg-primary-color on-bg-color pr-5 " style="width: 85%" role="progressbar">{{ $skill->name }}</div>
                         </div><!-- end progress -->
-                        <span class="text-black">50%</span>
+                        <span class="text-black">{{ $skill->percentage }}%</span>
                     </div><!-- end pbar-wrapper -->
-                   
+                     @endforeach
                 </div><!-- end column -->
             </div><!-- end row -->
         </div><!-- end container -->
@@ -417,96 +361,22 @@
             <div class="row">
                 <div class="col-xl">
                     <div class="row no-gutters">
-                        <div class="col-12">
+
+             @foreach($service as $ser)
+                        <div class="col-6">
                             <div class="box primary-border-e primary-border-eh">
                                 <div
                                     class="box-bg bg-primary-colorh bg-white-e box-left-right on-bg-color on-bg-colorh">
 
                                     <h1><i class="fa fa-leaf"></i></h1>
-                                    <h4 class="my-3 fw-semi-bold">Web Design</h4>
-                                    <p class="col-xl-12 col-md-8 col-sm-10 mx-auto px-0">Lorem ipsum dolor
-                                        sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                        labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                    <h4 class="my-3 fw-semi-bold">{{ $ser->title }}</h4>
+                                    <p class="col-xl-12 col-md-8 col-sm-10 mx-auto px-0">{!! $ser->description !!}</p>
 
                                 </div><!-- end box-bg -->
                             </div><!-- end box -->
                         </div><!-- end column -->
-                        <div class="col-12">
-                            <div class="box primary-border-e primary-border-eh mt-4">
-                                <div
-                                    class="box-bg bg-primary-colorh bg-white-e box-left-right on-bg-color on-bg-colorh">
-
-                                    <h1><i class="fa fa-pencil-square-o"></i></h1>
-                                    <h4 class="my-3 fw-semi-bold">Graphic Design</h4>
-                                    <p class="col-xl-12 col-md-8 col-sm-10 mx-auto px-0">Lorem ipsum dolor
-                                        sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                        labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-
-                                </div><!-- end box-bg -->
-                            </div><!-- end box -->
-                        </div><!-- end column -->
-                    </div><!-- end row -->
-                </div><!-- end column -->
-                <div class="col-xl">
-                    <div class="box primary-border-e primary-border-eh box-center my-4 my-xl-0">
-                        <div class="inner-box text-center">
-                            <h1 class="pt-3 what fw-semi-bold">What I DO</h1>
-                            <p class="pt-4 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.
-
-                            </p>
-
-                            <p class="pt-4 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                minim veniam.
-
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.
-                            </p>
-
-                            <p class="pt-4 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.
-
-                            </p>
-                        </div><!-- end inner-box -->
-                    </div><!-- end box -->
-                </div><!-- end column -->
-                <div class="col-xl">
-                    <div class="row no-gutters">
-                        <div class="col-12">
-                            <div class="box primary-border-e primary-border-eh">
-                                <div
-                                    class="box-bg bg-primary-colorh bg-white-e box-left-right on-bg-color on-bg-colorh">
-
-                                    <h1><i class="fa fa-leaf"></i></h1>
-                                    <h4 class="my-3 fw-semi-bold">Web Design</h4>
-                                    <p class="col-xl-12 col-md-8 col-sm-10 mx-auto px-0">Lorem ipsum dolor
-                                        sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                        labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-
-                                </div><!-- end box-bg -->
-                            </div><!-- end box -->
-                        </div><!-- end column -->
-                        <div class="col-12">
-                            <div class="box primary-border-e primary-border-eh mt-4">
-                                <div
-                                    class="box-bg bg-primary-colorh bg-white-e box-left-right on-bg-color on-bg-colorh">
-
-                                    <h1><i class="fa fa-pencil-square-o"></i></h1>
-                                    <h4 class="my-3 fw-semi-bold">Graphic Design</h4>
-                                    <p class="col-xl-12 col-md-8 col-sm-10 mx-auto px-0">Lorem ipsum dolor
-                                        sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                        labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-
-                                </div><!-- end box-bg -->
-                            </div><!-- end box -->
-                        </div><!-- end column -->
+                          @endforeach
+                    
                     </div><!-- end row -->
                 </div><!-- end column -->
             </div><!-- end row -->
@@ -711,7 +581,7 @@
     <!-- Banner Ends  -->
 
     <!-- team Starts  -->
-    <section class="section-padding team bg-white" id="team">
+<!--     <section class="section-padding team bg-white" id="team">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
@@ -719,12 +589,14 @@
                         <div class="heading-absolute text-white-c sh-above"><span>My</span></div>
                         <h1 class="sh-above2 position-relative"><span
                                 class="heading-border primary-color-border primary-color">My</span> Team</h1>
-                    </div><!-- end heading -->
+                    </div>
                     <p class="text-black-5 para-margin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
                         tenetur ratione quod.
                     </p>
-                </div><!-- end column -->
-            </div><!-- end row -->
+                </div>
+            </div>
+
+
             <div class="owl-carousel owl-theme" id="owl-team">
                 <div class="item">
                     <div class="team-box primary-border  primary-border-e primary-border-eh">
@@ -738,102 +610,16 @@
                                 <li class="list-inline-item"><a href="#"><i class="hover fa fa-instagram"></i></a></li>
                                 <li class="list-inline-item"><a href="#"><i class="hover fa fa-skype"></i></a></li>
                             </ul>
-                        </div><!-- end team-text -->
-                    </div><!-- end team-box -->
-                </div><!-- end item -->
-                <div class="item">
-                    <div class="team-box primary-border  primary-border-e primary-border-eh">
-                        <img src="{{ asset('public/frontend/images/team1.jpg')}}" alt="team-image" class="img-fluid">
-                        <div class="team-text text-black-3">
-                            <h4 class="text-uppercase">John Henry</h4>
-                            <p class="mt-1 fw-semi-bold">Senior Developer</p>
-                            <ul class="list-unstyled list-inline team-social text-black primary-colorh">
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-facebook"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-linkedin"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-skype"></i></a></li>
-                            </ul>
-                        </div><!-- end team-text -->
-                    </div><!-- end team-box -->
-                </div><!-- end item -->
-                <div class="item">
-                    <div class="team-box primary-border  primary-border-e primary-border-eh">
-                        <img src="{{ asset('public/frontend/images/team2.jpg')}}" alt="team-image" class="img-fluid">
-                        <div class="team-text text-black-3">
-                            <h4 class="text-uppercase">John Henry</h4>
-                            <p class="mt-1 fw-semi-bold">Senior Developer</p>
-                            <ul class="list-unstyled list-inline team-social text-black primary-colorh">
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-facebook"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-linkedin"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-skype"></i></a></li>
-                            </ul>
-                        </div><!-- end team-text -->
-                    </div><!-- end team-box -->
-                </div><!-- end item -->
-                <div class="item">
-                    <div class="team-box primary-border  primary-border-e primary-border-eh">
-                        <img src="{{ asset('public/frontend/images/team3.jpg')}}" alt="team-image" class="img-fluid">
-                        <div class="team-text text-black-3">
-                            <h4 class="text-uppercase">John Henry</h4>
-                            <p class="mt-1 fw-semi-bold">Senior Developer</p>
-                            <ul class="list-unstyled list-inline team-social text-black primary-colorh">
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-facebook"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-linkedin"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-skype"></i></a></li>
-                            </ul>
-                        </div><!-- end team-text -->
-                    </div><!-- end team-box -->
-                </div><!-- end item -->
-                <div class="item">
-                    <div class="team-box primary-border  primary-border-e primary-border-eh">
-                        <img src="{{ asset('public/frontend/images/team1.jpg')}}" alt="team-image" class="img-fluid">
-                        <div class="team-text text-black-3">
-                            <h4 class="text-uppercase">John Henry</h4>
-                            <p class="mt-1 fw-semi-bold">Senior Developer</p>
-                            <ul class="list-unstyled list-inline team-social text-black primary-colorh">
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-facebook"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-linkedin"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-skype"></i></a></li>
-                            </ul>
-                        </div><!-- end team-text -->
-                    </div><!-- end team-box -->
-                </div><!-- end item -->
-                <div class="item">
-                    <div class="team-box primary-border  primary-border-e primary-border-eh">
-                        <img src="{{ asset('public/frontend/images/team2.jpg')}}" alt="team-image" class="img-fluid">
-                        <div class="team-text text-black-3">
-                            <h4 class="text-uppercase">John Henry</h4>
-                            <p class="mt-1 fw-semi-bold">Senior Developer</p>
-                            <ul class="list-unstyled list-inline team-social text-black primary-colorh">
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-facebook"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-linkedin"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-skype"></i></a></li>
-                            </ul>
-                        </div><!-- end team-text -->
-                    </div><!-- end team-box -->
-                </div><!-- end item -->
-                <div class="item">
-                    <div class="team-box primary-border  primary-border-e primary-border-eh">
-                        <img src="{{ asset('public/frontend/images/team3.jpg')}}" alt="team-image" class="img-fluid">
-                        <div class="team-text text-black-3">
-                            <h4 class="text-uppercase">John Henry</h4>
-                            <p class="mt-1 fw-semi-bold">Senior Developer</p>
-                            <ul class="list-unstyled list-inline team-social text-black primary-colorh">
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-facebook"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-linkedin"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="hover fa fa-skype"></i></a></li>
-                            </ul>
-                        </div><!-- end team-text -->
-                    </div><!-- end team-box -->
-                </div><!-- end item -->
-            </div><!-- end owl-carousel -->
-        </div><!-- end container -->
-    </section>
+                        </div>
+                    </div>
+                </div>
+              
+            
+             
+              
+            </div>
+        </div>
+    </section> -->
     <!-- team Ends  -->
 
     <!-- Blogs Starts  -->
@@ -852,9 +638,14 @@
                 </div><!-- end column -->
             </div><!-- end row -->
             <div class="row">
+
+
+                @foreach($post as $row)
+
+
                 <div class="col-md-6 col-lg">
                     <div class="blog-block">
-                        <img src="{{ asset('public/frontend/images/blog1.jpg')}}" alt="blog-image" class="img-fluid">
+                        <img src="{{ asset($row->image)}}" alt="blog-image" class="img-fluid">
                         <div class="blog-text mt-3 primary-border-e primary-border-eh">
 
                             <ul class="list-inline date text-black-5">
@@ -868,75 +659,24 @@
                                     <p>3 Comments</p>
                                 </li>
                             </ul>
-                            <h6 class="my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tenetur
-                                ratione quod.</h6>
-                            <p class="text-black-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-                                tenetur ratione quod.</p>
+                            <h6 class="my-3">{{ $row->title }}</h6>
+                            <p class="text-black-5">{!! substr($row->description,0,400) !!} </p>
                             <a href="blog-post.html"
                                 class="btn bg-primary-color on-bg-color bg-primary-borderh br0 mt-4 px-3">Read
                                 More</a>
                         </div><!-- end blog-text -->
                     </div><!-- end blog-block -->
                 </div><!-- end column -->
-                <div class="col-md-6 col-lg mt-4 mt-md-0">
-                    <div class="blog-block">
-                        <img src="{{ asset('public/frontend/images/blog2.jpg')}}" alt="blog-image" class="img-fluid">
-                        <div class="blog-text mt-3 primary-border-e primary-border-eh">
-
-                            <ul class="list-inline date text-black-5">
-                                <li class="list-inline-item right-border pr-0">
-                                    <p>By: Admin</p>
-                                </li>
-                                <li class="list-inline-item right-border">
-                                    <p>18 Feb 2018</p>
-                                </li>
-                                <li class="list-inline-item right-border border-unset">
-                                    <p>3 Comments</p>
-                                </li>
-                            </ul>
-                            <h6 class="my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tenetur
-                                ratione quod.</h6>
-                            <p class="text-black-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-                                tenetur ratione quod.</p>
-                            <a href="blog-post.html"
-                                class="btn bg-primary-color on-bg-color bg-primary-borderh br0 mt-4 px-3">Read
-                                More</a>
-                        </div><!-- end blog-text -->
-                    </div><!-- end blog-block -->
-                </div><!-- end column -->
-                <div class="col-md-6 col-lg mt-4 mt-lg-0">
-                    <div class="blog-block">
-                        <img src="{{ asset('public/frontend/images/blog3.jpg')}}" alt="blog-image" class="img-fluid">
-                        <div class="blog-text mt-3 primary-border-e primary-border-eh">
-
-                            <ul class="list-inline date text-black-5">
-                                <li class="list-inline-item right-border pr-0">
-                                    <p>By: Admin</p>
-                                </li>
-                                <li class="list-inline-item right-border">
-                                    <p>18 Feb 2018</p>
-                                </li>
-                                <li class="list-inline-item right-border border-unset">
-                                    <p>3 Comments</p>
-                                </li>
-                            </ul>
-                            <h6 class="my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tenetur
-                                ratione quod.</h6>
-                            <p class="text-black-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-                                tenetur ratione quod.</p>
-                            <a href="blog-post.html"
-                                class="btn bg-primary-color on-bg-color bg-primary-borderh br0 mt-4 px-3">Read
-                                More</a>
-                        </div><!-- end blog-text -->
-                    </div><!-- end blog-block -->
-                </div><!-- end column -->
+                @endforeach
+          
+         
             </div><!-- end row -->
         </div><!-- end container -->
     </section>
     <!-- Blogs Ends  -->
 
     <!-- pricing Starts  -->
-    <section class="section-padding pricing bg-white" id="pricing">
+   <!--  <section class="section-padding pricing bg-white" id="pricing">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
@@ -944,22 +684,22 @@
                         <div class="heading-absolute text-white-c sh-above"><span>Pr</span></div>
                         <h1 class="sh-above2 position-relative"><span
                                 class="heading-border primary-color-border primary-color">Pricing</span> Tables</h1>
-                    </div><!-- end heading -->
+                    </div>
                     <p class="text-black-5 para-margin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
                         tenetur ratione quod.
                     </p>
-                </div><!-- end column -->
-            </div><!-- end row -->
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg col-md-6 col-sm-8 col-12 mx-auto mx-md-0">
                     <div class="pricing-box text-center primary-border-e primary-border-eh">
                         <div class="price bg-dark">
                             <div class="plan text-white-e">
                                 <h4>Basic</h4>
-                            </div><!-- end plan -->
+                            </div>
                             <h1 class="display-4 fw-semi-bold my-1 primary-color">$200</h1>
                             <h6 class="fw-regular text-white-e">Per Month</h6>
-                        </div><!-- end price -->
+                        </div>
                         <ul class="list-unstyled pricing-list my-4">
                             <li>
                                 <p>Data 50GB</p>
@@ -979,8 +719,8 @@
                         </ul>
                         <a href="#" class="btn bg-primary-color on-bg-color bg-primary-borderh br0 mb-4 px-5">Buy
                             Now</a>
-                    </div><!-- end pricing-box -->
-                </div><!-- end column -->
+                    </div>
+                </div>
                 <div class="col-lg col-md-6 col-sm-8 col-12 mx-auto mx-md-0 mt-4 mt-md-0">
                     <div class="pricing-box text-center primary-border-e primary-border-eh">
                         <div class="price bg-dark">
@@ -989,7 +729,7 @@
                             </div>
                             <h1 class="display-4 fw-semi-bold my-1 primary-color">$350</h1>
                             <h6 class="fw-regular text-white-e">Per Month</h6>
-                        </div><!-- end price -->
+                        </div>
                         <ul class="list-unstyled pricing-list my-4">
                             <li>
                                 <p>Data 350GB</p>
@@ -1009,17 +749,17 @@
                         </ul>
                         <a href="#" class="btn bg-primary-color on-bg-color bg-primary-borderh br0 mb-4 px-5">Buy
                             Now</a>
-                    </div><!-- end pricing-box -->
-                </div><!-- end column -->
+                    </div>
+                </div>
                 <div class="col-lg col-md-6 col-sm-8 col-12 mx-auto mx-md-0 mt-4 mt-lg-0">
                     <div class="pricing-box text-center primary-border-e primary-border-eh">
                         <div class="price bg-dark">
                             <div class="plan text-white-e">
                                 <h4>Premium</h4>
-                            </div><!-- end plan -->
+                            </div>
                             <h1 class="display-4 fw-semi-bold my-1 primary-color">$500</h1>
                             <h6 class="fw-regular text-white-e">Per Month</h6>
-                        </div><!-- end price -->
+                        </div>
                         <ul class="list-unstyled pricing-list my-4">
                             <li>
                                 <p>Data 500GB</p>
@@ -1039,11 +779,11 @@
                         </ul>
                         <a href="#" class="btn bg-primary-color on-bg-color bg-primary-borderh br0 mb-4 px-5">Buy
                             Now</a>
-                    </div><!-- end pricing-box -->
-                </div><!-- end column -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
     <!-- pricing Ends  -->
 
     <!-- Testimonials Starts  -->
@@ -1145,7 +885,7 @@
                             </div><!-- end column -->
                             <div class="col flex-centeringv text-black-7 center-responsive">
                                 <div class="text mb-2 mr-sm-3">
-                                    <h5>+080 1680 597617</h5>
+                                    <h5>{{ $settings[0]->phone }}</h5>
                                 </div><!-- end text -->
                             </div><!-- end column -->
                         </div><!-- end row -->
@@ -1163,7 +903,7 @@
                             </div><!-- end column -->
                             <div class="col flex-centeringv text-black-7 center-responsive">
                                 <div class="text mb-2 mr-sm-3">
-                                    <h5>contact@yourdomain.com</h5>
+                                    <h5>{{ $settings[0]->email }}</h5>
                                 </div><!-- end text -->
                             </div><!-- end column -->
                         </div><!-- end row -->
@@ -1181,7 +921,7 @@
                             </div><!-- end column -->
                             <div class="col flex-centeringv text-black-7 center-responsive">
                                 <div class="text mb-2 mr-sm-3">
-                                    <h5>123, Abc Street, California, USA</h5>
+                                    <h5>{{ $settings[0]->address }}</h5>
                                 </div><!-- end text -->
                             </div><!-- end column -->
                         </div><!-- end row -->
@@ -1199,7 +939,7 @@
                             </div><!-- end column -->
                             <div class="col flex-centeringv text-black-7 center-responsive">
                                 <div class="text mb-2 mr-sm-3">
-                                    <h5>www.yourdomain.com</h5>
+                                    <h5>{{ $settings[0]->web }}</h5>
                                 </div><!-- end text -->
                             </div><!-- end column -->
                         </div><!-- end row -->

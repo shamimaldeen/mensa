@@ -102,6 +102,36 @@
         </ul>
 
 
+         <a href="#" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
+            <span class="menu-item-label">Service</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{ route('add.service') }}" class="nav-link">Add Service</a></li>
+          <li class="nav-item"><a href="{{ route('all.post') }}" class="nav-link">Post</a></li>
+            
+        
+        </ul>
+
+
+             <a href="#" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
+            <span class="menu-item-label">Portfolio</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{ route('portfolio') }}" class="nav-link">Portfolio</a></li>
+        
+        
+        </ul>
+
+
+
 
           <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">

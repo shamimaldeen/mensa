@@ -57,6 +57,27 @@ Route::post('update/post/{id}','PostController@Updatepost');
 
 
 
+// service
+Route::get('add/service', 'ServiceController@create')->name('add.service'); 
+Route::post('store/service', 'ServiceController@store')->name('store.service');
+Route::get('service/all', 'ServiceController@index')->name('all.service');
+Route::get('delete/service/{id}','ServiceController@Deleteservice');
+Route::get('edit/service/{id}','ServiceController@Editservice');
+Route::post('update/service/{id}','ServiceController@Updateservice');
+
+
+
+
+// portfolio
+
+Route::get('portfolio', 'PortfolioController@portfolio')->name('portfolio');  
+Route::post('store/portfolio', 'PortfolioController@storeportfolio')->name('store.portfolio'); 
+Route::get('delete/portfolio/{id}','PortfolioController@Deleteportfolio');
+Route::get('edit/portfolio/{id}','PortfolioController@Editportfolio'); 
+Route::post('update/portfolio/{id}','PortfolioController@Updateportfolio');
+
+
+
 
 // skills
 

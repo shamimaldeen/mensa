@@ -185,7 +185,7 @@ class PagesController extends Controller
 
     public function index()
     {
-      $about=DB::table('abouts')->get();
+        $about=DB::table('abouts')->get();
         return view('pages.about.index',compact('about'));
 
     }
@@ -342,22 +342,5 @@ class PagesController extends Controller
           return Redirect()->route('all.resume')->with($notification); 
             
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
 }

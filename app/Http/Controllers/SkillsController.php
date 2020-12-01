@@ -79,10 +79,6 @@ class SkillsController extends Controller
               );
         return Redirect()->route('skills')->with($notification); 
     
-
-
-
-
 }
 
 }
