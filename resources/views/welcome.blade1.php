@@ -13,34 +13,34 @@
     <!-- Framework Stylesheets Start-->
 
     <!-- Bootstrap Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/css/bootstrap-rtl-4.4.1.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/css/magnific-popup.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/bootstrap-rtl-4.4.1.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/magnific-popup.css')}}">
 
     <!-- Framework Stylesheets End-->
 
     <!-- Slider Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/css/swiper.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/css/swiper-custom.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/swiper.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/swiper-custom.css')}}">
 
     <!-- Owl Carousel -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/css/owl.carousel.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/css/owl.theme.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/owl.carousel.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/owl.theme.css')}}">
 
 
     <!-- Font Awsome Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('public/frontend/vendors/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('frontend/vendors/font-awesome-4.7.0/css/font-awesome.min.css')}}">
 
     <!-- Custom Stylesheet Start-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/css/style-rtl.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/css/color-panel-rtl.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/css/responsive-rtl.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/css/colors/yellow.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/style-rtl.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/color-panel-rtl.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/responsive-rtl.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/colors/yellow.css')}}">
 
     <!-- Custom Stylesheet End-->
 
 
     <!-- Animation Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/css/animate.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/animate.css')}}">
 
 
 </head>
@@ -50,11 +50,14 @@
  $about=DB::table('abouts')->get();
  $experience =DB::table('resumes')->where(['type' => 'EXPERIENCE'])->get();
  $education =DB::table('resumes')->where(['type' => 'EDUCATION'])->get();
+
  $portfolio=DB::table('portfolios')->get();
  $post=DB::table('posts')->get();
  $service=DB::table('services')->get();
  $settings=DB::table('settings')->get();
  $skills=DB::table('skills')->get();
+
+
 @endphp
 
 <body data-spy="scroll" data-target="#navbarSupportedContent" data-offset="0">
@@ -118,7 +121,7 @@
                 <li class="nav-item"><a href="#team" class="nav-link bg-primary-colorh">Team
                         <i class="fa fa-users"></i>
                     </a></li>
-                <li class="nav-item"><a href="{{route('blogpost')}} " class="nav-link bg-primary-colorh">Blog
+                <li class="nav-item"><a href="#blogs" class="nav-link bg-primary-colorh">Blog
                         <i class="fa fa-newspaper-o"></i>
                     </a></li>
                 <li class="nav-item"><a href="#pricing" class="nav-link bg-primary-colorh">Pricing
@@ -205,7 +208,7 @@
                         </p>
 
                         <div class="about-btns pt-1">
-                            <a href="{{ asset('public/pdf/s.pdf') }}" download 
+                            <a href="{{ asset('pdf/s.pdf') }}" download 
                                 class="btn on-bg-color bg-primary-color bg-primary-colorh fw-semi-bold br0">Download
                                 Resume</a>
                             <a href="#"
@@ -434,55 +437,55 @@
                                 <div class="col">
                                     <div class="card-columns">
                                         <div class="card border-0 filter all branding">
-                                            <img src="{{ asset('public/frontend/images/gallery1.jpg')}}" alt="gallery-image" class="img-fluid">
+                                            <img src="{{ asset('/frontend/images/gallery1.jpg')}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
                                                 <div class="meta-texts sh-above text-white-persist fw-light">
                                                     <h3 class="fw-semi-bold primary-color">Project Title</h3>
                                                     <h6 class="mt-2 mb-3">Category</h6>
-                                                    <a href="{{ asset('public/frontend/images/gallery1.jpg')}}" title="image-1"
+                                                    <a href="{{ asset('/frontend/images/gallery1.jpg')}}" title="image-1"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
                                                 </div><!-- end meta-texts -->
                                             </div><!-- end card-meta -->
                                         </div><!-- end card -->
                                         <div class="card border-0 filter all identity">
-                                            <img src="{{ asset('public/frontend/images/gallery2.jpg')}}" alt="gallery-image" class="img-fluid">
+                                            <img src="{{ asset('/frontend/images/gallery2.jpg')}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
                                                 <div class="meta-texts sh-above text-white-persist fw-light">
                                                     <h3 class="fw-semi-bold primary-color">Project Title</h3>
                                                     <h6 class="mt-2 mb-3">Category</h6>
-                                                    <a href="{{ asset('public/frontend/images/gallery2.jpg')}}" title="image-2"
+                                                    <a href="{{ asset('/frontend/images/gallery2.jpg')}}" title="image-2"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
                                                 </div><!-- end meta-texts -->
                                             </div><!-- end card-meta -->
                                         </div><!-- end card -->
                                         <div class="card border-0 filter all web identity">
-                                            <img src="{{ asset('public/frontend/images/gallery3.jpg')}}" alt="gallery-image" class="img-fluid">
+                                            <img src="{{ asset('/frontend/images/gallery3.jpg')}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
                                                 <div class="meta-texts sh-above text-white-persist fw-light">
                                                     <h3 class="fw-semi-bold primary-color">Project Title</h3>
                                                     <h6 class="mt-2 mb-3">Category</h6>
-                                                    <a href="{{ asset('public/frontend/images/gallery3.jpg')}}" title="image-3"
+                                                    <a href="{{ asset('/frontend/images/gallery3.jpg')}}" title="image-3"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
                                                 </div><!-- end meta-texts -->
                                             </div><!-- end card-meta -->
                                         </div><!-- end card -->
                                         <div class="card border-0 filter all web">
-                                            <img src="{{ asset('public/frontend/images/gallery2.jpg')}}" alt="gallery-image" class="img-fluid">
+                                            <img src="{{ asset('/frontend/images/gallery2.jpg')}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
                                                 <div class="meta-texts sh-above text-white-persist fw-light">
                                                     <h3 class="fw-semi-bold primary-color">Project Title</h3>
                                                     <h6 class="mt-2 mb-3">Category</h6>
-                                                    <a href="{{ asset('public/frontend/images/gallery2.jpg')}}" title="image-4"
+                                                    <a href="{{ asset('/frontend/images/gallery2.jpg')}}" title="image-4"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
                                                 </div><!-- end meta-texts -->
                                             </div><!-- end card-meta -->
                                         </div><!-- end card -->
                                         <div class="card border-0 filter all print web">
-                                            <img src="{{ asset('public/frontend/images/gallery3.jpg')}}" alt="gallery-image" class="img-fluid">
+                                            <img src="{{ asset('/frontend/images/gallery3.jpg')}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
                                                 <div class="meta-texts sh-above text-white-persist fw-light">
                                                     <h3 class="fw-semi-bold primary-color">Project Title</h3>
@@ -494,36 +497,36 @@
                                             </div><!-- end card-meta -->
                                         </div><!-- end card -->
                                         <div class="card border-0 filter all branding identity">
-                                            <img src="{{ asset('public/frontend/images/gallery2.jpg')}}" alt="gallery-image" class="img-fluid">
+                                            <img src="{{ asset('/frontend/images/gallery2.jpg')}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
                                                 <div class="meta-texts sh-above text-white-persist fw-light">
                                                     <h3 class="fw-semi-bold primary-color">Project Title</h3>
                                                     <h6 class="mt-2 mb-3">Category</h6>
-                                                    <a href="{{ asset('public/frontend/images/gallery2.jpg')}}" title="image-6"
+                                                    <a href="{{ asset('/frontend/images/gallery2.jpg')}}" title="image-6"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
                                                 </div><!-- end meta-texts -->
                                             </div><!-- end card-meta -->
                                         </div><!-- end card -->
                                         <div class="card border-0 filter all branding">
-                                            <img src="{{ asset('public/frontend/images/gallery1.jpg')}}" alt="gallery-image" class="img-fluid">
+                                            <img src="{{ asset('/frontend/images/gallery1.jpg')}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
                                                 <div class="meta-texts sh-above text-white-persist fw-light">
                                                     <h3 class="fw-semi-bold primary-color">Project Title</h3>
                                                     <h6 class="mt-2 mb-3">Category</h6>
-                                                    <a href="{{ asset('public/frontend/images/gallery1.jpg')}}" title="image-7"
+                                                    <a href="{{ asset('/frontend/images/gallery1.jpg')}}" title="image-7"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
                                                 </div><!-- end meta-texts -->
                                             </div><!-- end card-meta -->
                                         </div><!-- end card -->
                                         <div class="card border-0 filter all web identity brand">
-                                            <img src="{{ asset('public/frontend/images/gallery2.jpg')}}" alt="gallery-image" class="img-fluid">
+                                            <img src="{{ asset('/frontend/images/gallery2.jpg')}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
                                                 <div class="meta-texts sh-above text-white-persist fw-light">
                                                     <h3 class="fw-semi-bold primary-color">Project Title</h3>
                                                     <h6 class="mt-2 mb-3">Category</h6>
-                                                    <a href="{{ asset('public/frontend/images/gallery2.jpg')}}" title="image-8"
+                                                    <a href="{{ asset('/frontend/images/gallery2.jpg')}}" title="image-8"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
                                                 </div><!-- end meta-texts -->
@@ -592,10 +595,12 @@
                     </p>
                 </div>
             </div>
+
+
             <div class="owl-carousel owl-theme" id="owl-team">
                 <div class="item">
                     <div class="team-box primary-border  primary-border-e primary-border-eh">
-                        <img src="{{ asset('public/frontend/images/team3.jpg')}}" alt="team-image" class="img-fluid">
+                        <img src="{{ asset('/frontend/images/team3.jpg')}}" alt="team-image" class="img-fluid">
                         <div class="team-text text-black-3">
                             <h4 class="text-uppercase">John Henry</h4>
                             <p class="mt-1 fw-semi-bold">Senior Developer</p>
@@ -656,7 +661,7 @@
                             </ul>
                             <h6 class="my-3">{{ $row->title }}</h6>
                             <p class="text-black-5">{!! substr($row->description,0,400) !!} </p>
-                            <a href="{{ URL::to('blogpost/bolg_details/'.$row->id) }}"
+                            <a href="blog-post.html"
                                 class="btn bg-primary-color on-bg-color bg-primary-borderh br0 mt-4 px-3">Read
                                 More</a>
                         </div><!-- end blog-text -->
@@ -798,7 +803,7 @@
                                     <div class="col-auto mx-auto">
                                         <div class="img-styled">
                                             <div class="border-styled primary-border">
-                                                <img src="{{asset('public/frontend/images/testimonials-img.jpg')}}" alt="testimonials-img"
+                                                <img src="{{asset('/frontend/images/testimonials-img.jpg')}}" alt="testimonials-img"
                                                     class="img-fluid">
                                             </div><!-- end border-styled -->
                                         </div><!-- end img-styled -->
@@ -820,7 +825,7 @@
                                     <div class="col-auto mx-auto">
                                         <div class="img-styled">
                                             <div class="border-styled primary-border">
-                                                <img src="{{ asset('public/frontend/images/testimonials-img.jpg')}}" alt="testimonials-img"
+                                                <img src="{{ asset('/frontend/images/testimonials-img.jpg')}}" alt="testimonials-img"
                                                     class="img-fluid">
                                             </div><!-- end border-styled -->
                                         </div><!-- end img-styled -->
@@ -842,7 +847,7 @@
                                     <div class="col-auto mx-auto">
                                         <div class="img-styled">
                                             <div class="border-styled primary-border">
-                                                <img src="{{asset('public/frontend/images/testimonials-img.jpg')}}" alt="testimonials-img"
+                                                <img src="{{asset('/frontend/images/testimonials-img.jpg')}}" alt="testimonials-img"
                                                     class="img-fluid">
                                             </div><!-- end border-styled -->
                                         </div><!-- end img-styled -->
@@ -1015,20 +1020,20 @@
 
     <!-- Optional JavaScript, Not optional it's need too -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{{ asset('public/frontend/js/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{ asset('public/frontend/js/popper.min.js')}}"></script>
-    <script src="{{ asset('public/frontend/js/bootstrap.min4.3.1.js')}}"></script>
-    <script src="{{ asset('public/frontend/js/swiper.min.js')}}"></script>
-    <script src="{{ asset('public/frontend/js/owl.carousel.min.js')}}"></script>
-    <script src="{{ asset('public/frontend/js/jquery.magnific-popup.min.js')}}"></script>
-    <script src="{{ asset('public/frontend/js/custom-gallery.js')}}"></script>
-    <script src="{{ asset('public/frontend/js/scrollreveal.min.js')}}"></script>
+    <script src="{{ asset('/frontend/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{ asset('/frontend/js/popper.min.js')}}"></script>
+    <script src="{{ asset('/frontend/js/bootstrap.min4.3.1.js')}}"></script>
+    <script src="{{ asset('/frontend/js/swiper.min.js')}}"></script>
+    <script src="{{ asset('/frontend/js/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('/frontend/js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{ asset('/frontend/js/custom-gallery.js')}}"></script>
+    <script src="{{ asset('/frontend/js/scrollreveal.min.js')}}"></script>
 
-    <script src="{{ asset('public/frontend/js/particles.js')}}"></script>
+    <script src="{{ asset('/frontend/js/particles.js')}}"></script>
 
     <!-- Custom Particle Backgrounds start -->
 
-    <script src="{{ asset('public/frontend/js/particle-polygon.js')}}"></script>
+    <script src="{{ asset('/frontend/js/particle-polygon.js')}}"></script>
     <!-- <script src="js/particle-nasa.js"></script> -->
     <!-- <script src="js/particle-bubble.js"></script> -->
     <!-- <script src="js/particle-snow.js"></script> -->
@@ -1036,7 +1041,7 @@
 
     <!-- Custom Particle Backgrounds End -->
 
-    <script src="{{ asset('public/frontend/js/custom-javascript.js')}}"></script>
+    <script src="{{ asset('/frontend/js/custom-javascript.js')}}"></script>
     
 
     <!-- Page Scripts Ends -->

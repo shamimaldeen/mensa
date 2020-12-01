@@ -100,4 +100,11 @@ Route::post('update/settings/{id}','SettingController@Updatesettings');
 
 // contact   forntend
 Route::post('store/contact', 'HomeController@storecontact')->name('store.contact'); 
+Route::get('/blogpost', 'HomeController@blogpost')->name('blogpost');
+Route::get('blogpost/bolg_details/{id}', 'HomeController@blogdetails');
+
+
+//comment
+// Route::post('store/comment', 'HomeController@storecomment')->name('store.comment'); 
+
 

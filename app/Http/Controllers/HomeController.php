@@ -75,5 +75,46 @@ class HomeController extends Controller
       
     }
 
+
+
+      public function blogpost()
+    {
+        return view('blogpost');
+    }
+
+
+
+      public function blogdetails($id)
+    {
+
+        $postdetails =DB::table('posts')->where('id',$id)->get();
+        return view('blog_details',compact('postdetails'));
+    }
+
+
+
+    //    public function storecomment(Request $request)
+    // {
+      
+    //     $data=array();
+    //     $data['post_id']=$request->post_id;
+    //     $data['fastname']=$request->fastname;
+    //     $data['lastname']=$request->lastname;
+    //     $data['email']=$request->email;
+    //     $data['subject']=$request->subject;
+    //     $data['comment']=$request->comment;
+       
+    //           $comment=DB::table('comments')
+    //                       ->insert($data);
+    //              $notification=array(
+    //                  'messege'=>'Successfully sent your Comment!',
+    //                  'alert-type'=>'success'
+    //                   );
+    //             return Redirect()->back()->with($notification); 
+        
+
+    // }
+
+
     
 }
