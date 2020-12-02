@@ -50,6 +50,14 @@
  $about=DB::table('abouts')->get();
  $experience =DB::table('resumes')->where(['type' => 'EXPERIENCE'])->get();
  $education =DB::table('resumes')->where(['type' => 'EDUCATION'])->get();
+
+
+ $per   =DB::table('portfolios')->where(['type' => 'Performance'])->get();
+ $paint =DB::table('portfolios')->where(['type' => 'Painting'])->get();
+ $inst  =DB::table('portfolios')->where(['type' => 'Installation'])->get();
+ $video =DB::table('portfolios')->where(['type' => 'Videos'])->get();
+
+
  $portfolio=DB::table('portfolios')->get();
  $post=DB::table('posts')->get();
  $service=DB::table('services')->get();
@@ -381,7 +389,7 @@
     </section>
     <!-- Services End  -->
 
-    <!-- Portfolio Starts  -->
+   <!-- Portfolio Starts  -->
     <section class="section-padding portfolio position-relative overflow-hidden bg-white" id="portfolio">
         <div class="custom-skills-border">
             <div class="line-skills-border line-border1"></div>
@@ -414,25 +422,30 @@
                                 </button>
                                 <button class="py-0 btn filter-button hover right-border text-black-5"
                                     data-filter="print">
-                                    <span></span>Brand
+                                    <span></span>Painting
                                 </button>
                                 <button class="py-0 btn filter-button hover right-border text-black-5"
                                     data-filter="identity">
-                                    <span></span>Design
+                                    <span></span>Installation Art
                                 </button>
+
                                 <button class="py-0 btn filter-button hover right-border text-black-5"
                                     data-filter="branding">
-                                    <span></span>Photos
+                                    <span></span>Performance Art
                                 </button>
-                                <button class="py-0 btn filter-button hover right-border text-black-5 border-unset"
+
+                               <!--  <button class="py-0 btn filter-button hover right-border text-black-5 border-unset"
                                     data-filter="web">
                                     <span></span>Videos
-                                </button>
+                                </button> -->
                             </div><!-- end filter-buttons -->
 
                             <div class="row" id="casual">
                                 <div class="col">
                                     <div class="card-columns">
+
+
+<!-- 
                                         <div class="card border-0 filter all branding">
                                             <img src="{{ asset('public/frontend/images/gallery1.jpg')}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
@@ -442,33 +455,16 @@
                                                     <a href="{{ asset('public/frontend/images/gallery1.jpg')}}" title="image-1"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
-                                                </div><!-- end meta-texts -->
-                                            </div><!-- end card-meta -->
-                                        </div><!-- end card -->
-                                        <div class="card border-0 filter all identity">
-                                            <img src="{{ asset('public/frontend/images/gallery2.jpg')}}" alt="gallery-image" class="img-fluid">
-                                            <div class="card-meta flex-centering text-center">
-                                                <div class="meta-texts sh-above text-white-persist fw-light">
-                                                    <h3 class="fw-semi-bold primary-color">Project Title</h3>
-                                                    <h6 class="mt-2 mb-3">Category</h6>
-                                                    <a href="{{ asset('public/frontend/images/gallery2.jpg')}}" title="image-2"
-                                                        class="with-caption image-link"><span><i
-                                                                class="fa fa-plus"></i></span></a>
-                                                </div><!-- end meta-texts -->
-                                            </div><!-- end card-meta -->
-                                        </div><!-- end card -->
-                                        <div class="card border-0 filter all web identity">
-                                            <img src="{{ asset('public/frontend/images/gallery3.jpg')}}" alt="gallery-image" class="img-fluid">
-                                            <div class="card-meta flex-centering text-center">
-                                                <div class="meta-texts sh-above text-white-persist fw-light">
-                                                    <h3 class="fw-semi-bold primary-color">Project Title</h3>
-                                                    <h6 class="mt-2 mb-3">Category</h6>
-                                                    <a href="{{ asset('public/frontend/images/gallery3.jpg')}}" title="image-3"
-                                                        class="with-caption image-link"><span><i
-                                                                class="fa fa-plus"></i></span></a>
-                                                </div><!-- end meta-texts -->
-                                            </div><!-- end card-meta -->
-                                        </div><!-- end card -->
+                                                </div>
+                                            </div>
+                                        </div> -->
+
+
+
+
+                                     
+
+
                                         <div class="card border-0 filter all web">
                                             <img src="{{ asset('public/frontend/images/gallery2.jpg')}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
@@ -481,18 +477,34 @@
                                                 </div><!-- end meta-texts -->
                                             </div><!-- end card-meta -->
                                         </div><!-- end card -->
+
+
+
+
+
+
+                                       @foreach($paint as $row)
                                         <div class="card border-0 filter all print web">
-                                            <img src="{{ asset('public/frontend/images/gallery3.jpg')}}" alt="gallery-image" class="img-fluid">
+                                            <img src="{{ asset($row->image)}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
                                                 <div class="meta-texts sh-above text-white-persist fw-light">
                                                     <h3 class="fw-semi-bold primary-color">Project Title</h3>
                                                     <h6 class="mt-2 mb-3">Category</h6>
-                                                    <a href="images/gallery3.jpg" title="image-5"
+                                                    <a href="{{ asset($row->image)}}" title="image-5"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
                                                 </div><!-- end meta-texts -->
                                             </div><!-- end card-meta -->
                                         </div><!-- end card -->
+
+                                        @endforeach
+
+
+
+
+
+
+<!-- 
                                         <div class="card border-0 filter all branding identity">
                                             <img src="{{ asset('public/frontend/images/gallery2.jpg')}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
@@ -502,33 +514,48 @@
                                                     <a href="{{ asset('public/frontend/images/gallery2.jpg')}}" title="image-6"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
-                                                </div><!-- end meta-texts -->
-                                            </div><!-- end card-meta -->
-                                        </div><!-- end card -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+ -->
+
+
+
+                                   @foreach($per as $row)
                                         <div class="card border-0 filter all branding">
-                                            <img src="{{ asset('public/frontend/images/gallery1.jpg')}}" alt="gallery-image" class="img-fluid">
+                                            <img src="{{ asset($row->image)}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
                                                 <div class="meta-texts sh-above text-white-persist fw-light">
                                                     <h3 class="fw-semi-bold primary-color">Project Title</h3>
                                                     <h6 class="mt-2 mb-3">Category</h6>
-                                                    <a href="{{ asset('public/frontend/images/gallery1.jpg')}}" title="image-7"
+                                                    <a href="{{ asset($row->image)}}" title="image-7"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
                                                 </div><!-- end meta-texts -->
                                             </div><!-- end card-meta -->
                                         </div><!-- end card -->
+                                        @endforeach
+
+
+                                   @foreach($inst as $row)
                                         <div class="card border-0 filter all web identity brand">
-                                            <img src="{{ asset('public/frontend/images/gallery2.jpg')}}" alt="gallery-image" class="img-fluid">
+                                            <img src="{{ asset($row->image)}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
                                                 <div class="meta-texts sh-above text-white-persist fw-light">
                                                     <h3 class="fw-semi-bold primary-color">Project Title</h3>
                                                     <h6 class="mt-2 mb-3">Category</h6>
-                                                    <a href="{{ asset('public/frontend/images/gallery2.jpg')}}" title="image-8"
+                                                    <a href="{{ asset($row->image)}}" title="image-8"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
-                                                </div><!-- end meta-texts -->
-                                            </div><!-- end card-meta -->
-                                        </div><!-- end card -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                  @endforeach
+
+
+
+
                                     </div><!-- end card-columns -->
                                 </div><!-- end column -->
                             </div><!-- end row -->
@@ -627,9 +654,9 @@
                         <h1 class="sh-above2 position-relative"><span
                                 class="heading-border primary-color-border primary-color">Blog</span> Posts</h1>
                     </div><!-- end heading -->
-                    <p class="text-black-5 para-margin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+                   <!--  <p class="text-black-5 para-margin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
                         tenetur ratione quod.
-                    </p>
+                    </p> -->
                 </div><!-- end column -->
             </div><!-- end row -->
             <div class="row">
@@ -645,14 +672,14 @@
 
                             <ul class="list-inline date text-black-5">
                                 <li class="list-inline-item right-border pr-0">
-                                    <p>By: Admin</p>
+                                    <p>By: {{ $profile[0]->name}}</p>
                                 </li>
-                                <li class="list-inline-item right-border">
+                                <!-- <li class="list-inline-item right-border">
                                     <p>18 Feb 2018</p>
                                 </li>
                                 <li class="list-inline-item right-border border-unset">
                                     <p>3 Comments</p>
-                                </li>
+                                </li> -->
                             </ul>
                             <h6 class="my-3">{{ $row->title }}</h6>
                             <p class="text-black-5">{!! substr($row->description,0,400) !!} </p>

@@ -26,7 +26,19 @@
             <form method="post" action="{{ url('update/portfolio/'.$portfolio->id) }}" enctype="multipart/form-data">
               @csrf
               <div class="modal-body pd-20">
-                
+                   <div class="form-group">
+                   <label for="exampleInputEmail1">Select </label>
+                   <select name="type" class="form-control" required="">
+                     <option selected="" disabled="">Select One</option> 
+
+                       <option value="Performance" @if($portfolio->type = "Performance") selected="" @endif >Performance</option> 
+                       <option value="Painting" @if($portfolio->type = "Painting") selected="" @endif  >Painting</option> 
+                       <option value="Installation" @if($portfolio->type = "Installation") selected="" @endif  >Installation</option> 
+                       <option value="Videos" @if($portfolio->type = "Videos") selected="" @endif  >Videos</option> 
+                     </select>
+                   
+                  </div>
+               
                 <div class="form-group">
                   <label for="exampleInputEmail1">Image</label>
                   <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"   name="image">

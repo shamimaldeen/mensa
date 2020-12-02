@@ -19,6 +19,7 @@
               <thead>
                 <tr>
                   <th class="wd-15p">ID</th>
+                  <th class="wd-15p">Type</th>
                   <th class="wd-15p">Image</th>
                   <th class="wd-15p">Action</th>
                  
@@ -28,6 +29,7 @@
                 @foreach($portfolio as $row)
                 <tr>
                   <td>{{ $row->id }}</td>
+                  <td>{{ $row->type }}</td>
                   <td><img src="{{ URL::to($row->image) }}" height="70px;" width="80px;"></td>
                   <td>
                     <a href="{{ URL::to('edit/portfolio/'.$row->id) }}" class="btn btn-sm btn-info">edit</a>
@@ -55,7 +57,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              @if ($errors->any())
+             @if ($errors->any())
                   <div class="alert alert-danger">
                       <ul>
                           @foreach ($errors->all() as $error)
@@ -67,6 +69,22 @@
             <form method="post" action="{{ route('store.portfolio') }}" enctype="multipart/form-data">
               @csrf
               <div class="modal-body pd-20">
+
+
+             
+                   <div class="form-group">
+                   <label for="exampleInputEmail1">Select </label>
+                   <select name="type" class="form-control" required="">
+                     <option selected="" disabled="">Select One</option> 
+
+                       <option value="Performance" >Performance</option> 
+                       <option value="Painting" >Painting</option> 
+                       <option value="Installation" >Installation</option>
+                       <option value="Videos" >Videos</option>
+                     
+                     </select>
+                   
+                  </div>
                 
                  <div class="form-group">
                   <label for="exampleInputEmail1">Image</label>

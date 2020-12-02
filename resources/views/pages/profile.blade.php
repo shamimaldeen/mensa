@@ -23,7 +23,6 @@
                   <th class="wd-15p">Email</th>
                   <th class="wd-15p">Designation</th>
                   <th class="wd-15p">Facebook</th>
-                  <th class="wd-15p">Twitter</th>
                   <th class="wd-15p">Image</th>
                   <th class="wd-20p">Action</th>
                 </tr>
@@ -36,7 +35,6 @@
                   <td>{{ $row->email }}</td>
                   <td>{{ $row->designation }}</td>
                   <td>{{ $row->facebook }}</td>
-                  <td>{{ $row->twitter }}</td>
                   <td><img src="{{ URL::to($row->image) }}" height="70px;" width="80px;"></td>
                   <td>
                   	<a href="{{ URL::to('edit/profile/'.$row->id) }}" class="btn btn-sm btn-info">edit</a>

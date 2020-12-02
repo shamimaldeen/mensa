@@ -27,6 +27,7 @@ class PortfolioController extends Controller
     {
       
         $data=array();
+        $data['type']=$request->type;
         $image=$request->file('image');
             if ($image) {
                 // $image_name= str_random(5);
@@ -93,6 +94,7 @@ class PortfolioController extends Controller
     {
         $oldlogo=$request->old_logo;
         $data=array();
+        $data['type']=$request->type;
         $image=$request->file('image');
             if ($image) {
                 unlink($oldlogo);
