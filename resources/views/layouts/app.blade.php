@@ -54,7 +54,7 @@
             <a href="{{ route('profiles')}} " class="nav-link">Profile</a>
           </li>
          
-          <li class="nav-item"><a href="{{ route('skills')}}" class="nav-link">Skills</a></li>
+          
         </ul>
 
 
@@ -87,7 +87,7 @@
         
         </ul>
 
-                <a href="#" class="sl-menu-link">
+          <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
             <span class="menu-item-label">Post</span>
@@ -97,6 +97,22 @@
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="{{ route('add.post') }}" class="nav-link">Add Post</a></li>
           <li class="nav-item"><a href="{{ route('all.post') }}" class="nav-link">Post</a></li>
+            
+        
+        </ul>
+
+
+
+           <a href="#" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
+            <span class="menu-item-label">Skills</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{ route('add.skill') }}" class="nav-link">Add Skills</a></li>
+          <li class="nav-item"><a href="{{ route('all.skill') }}" class="nav-link">Skills</a></li>
             
         
         </ul>

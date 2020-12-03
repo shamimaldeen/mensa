@@ -93,6 +93,16 @@ class HomeController extends Controller
 
 
 
+       public function skilldetails($id)
+    {
+
+        $skilldetails =DB::table('skills')->where('id',$id)->get();
+        return view('skill_details',compact('skilldetails'));
+    }
+
+
+
+
     //    public function storecomment(Request $request)
     // {
       

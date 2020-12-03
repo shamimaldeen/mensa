@@ -56,6 +56,15 @@ Route::get('edit/post/{id}','PostController@Editpost');
 Route::post('update/post/{id}','PostController@Updatepost');
 
 
+// Skills
+Route::get('add/skill', 'SkillController@create')->name('add.skill'); 
+Route::post('store/skill', 'SkillController@store')->name('store.skill');
+Route::get('skill/all', 'SkillController@index')->name('all.skill');
+Route::get('delete/skill/{id}','SkillController@Deleteskill');
+Route::get('edit/skill/{id}','SkillController@Editskill');
+Route::post('update/skill/{id}','SkillController@Updateskill');
+
+
 
 // service
 Route::get('add/service', 'ServiceController@create')->name('add.service'); 
@@ -81,11 +90,11 @@ Route::post('update/portfolio/{id}','PortfolioController@Updateportfolio');
 
 // skills
 
-Route::get('skills', 'SkillsController@skills')->name('skills');  
-Route::post('store/skills', 'SkillsController@storeskills')->name('store.skills'); 
-Route::get('delete/skills/{id}','SkillsController@Deleteskills');
-Route::get('edit/skills/{id}','SkillsController@Editskills'); 
-Route::post('update/skills/{id}','SkillsController@Updateskills');
+// Route::get('skills', 'SkillsController@skills')->name('skills');  
+// Route::post('store/skills', 'SkillsController@storeskills')->name('store.skills'); 
+// Route::get('delete/skills/{id}','SkillsController@Deleteskills');
+// Route::get('edit/skills/{id}','SkillsController@Editskills'); 
+// Route::post('update/skills/{id}','SkillsController@Updateskills');
 
 // settings
 
@@ -102,6 +111,7 @@ Route::post('update/settings/{id}','SettingController@Updatesettings');
 Route::post('store/contact', 'HomeController@storecontact')->name('store.contact'); 
 Route::get('/blogpost', 'HomeController@blogpost')->name('blogpost');
 Route::get('blogpost/bolg_details/{id}', 'HomeController@blogdetails');
+Route::get('skills/skill_details/{id}', 'HomeController@skilldetails');
 
 
 //comment

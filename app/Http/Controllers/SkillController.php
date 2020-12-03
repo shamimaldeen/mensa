@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 
-class PortfolioController extends Controller
-{
-       public function __construct()
+class SkillController extends Controller
+{   
+
+
+	public function __construct()
     {
         $this->middleware('auth');
     }
@@ -15,24 +17,20 @@ class PortfolioController extends Controller
 
 
 
-     public function portfolio()
+      public function create()
     {
-
-
-
-
-      $portfolio=DB::table('portfolios')->get();
-      return view('pages.portfolio.portfolio',compact('portfolio'));
+      $skill=DB::table('skills')->get();
+      return view('pages.skill.create',compact('skill'));
     }
 
 
-
-      public function storeportfolio(Request $request)
+       public function store(Request $request)
     {
-      
-        $data=array();
-        $data['type']=$request->type;
+
+       $data=array();
         $data['title']=$request->title;
+        $data['description']=$request->description;
+     
         $image=$request->file('image');
             if ($image) {
                 // $image_name= str_random(5);
@@ -40,95 +38,117 @@ class PortfolioController extends Controller
 
                 $ext=strtolower($image->getClientOriginalExtension());
                 $image_full_name=$image_name.'.'.$ext;
-                $upload_path='public/portfolio/';
+                $upload_path='public/skill/';
                 $image_url=$upload_path.$image_full_name;
                 $success=$image->move($upload_path,$image_full_name);
               
                 $data['image']=$image_url;
-                $portfolios=DB::table('portfolios')
+                $skill=DB::table('skills')
                           ->insert($data);
                     $notification=array(
-                     'messege'=>'Successfully Image Inserted ',
+                     'messege'=>'Successfully skill Inserted ',
                      'alert-type'=>'success'
                     );
                 return Redirect()->back()->with($notification);                      
             }else{
-              $portfolio=DB::table('portfolios')
+              $skill=DB::table('skills')
                           ->insert($data);
                  $notification=array(
-                     'messege'=>'Successfully added done!',
+                     'messege'=>' Added Done!',
                      'alert-type'=>'success'
                       );
-                return Redirect()->back()->with($notification); 
+                 return Redirect()->route('all.skill')->with($notification);
             }
+   
+    }
+
+
+
+
+
+      public function index()
+    {
+      $skill=DB::table('skills')->get();
+        return view('pages.skill.index',compact('skill'));
 
     }
 
 
 
 
-     public function Deleteportfolio($id)
+
+             public function Deleteskill($id)
     {
-        $data=DB::table('portfolios')->where('id',$id)->first();
+        $data=DB::table('skills')->where('id',$id)->first();
         $image=$data->image;
-        unlink($image);
-        $portfolio=DB::table('portfolios')->where('id',$id)->delete();
+        if ($image) {
+           unlink($image);
+        $post=DB::table('skills')->where('id',$id)->delete();
                 $notification=array(
-                     'messege'=>'Successfully Image Deleted ',
+                     'messege'=>'Successfully skill Deleted ',
                      'alert-type'=>'success'
                 );
         return Redirect()->back()->with($notification);   
 
+        }else{
+
+             $skill=DB::table('skills')->where('id',$id)->delete();
+                $notification=array(
+                     'messege'=>'Successfully skill Deleted ',
+                     'alert-type'=>'success'
+                );
+        return Redirect()->back()->with($notification);   
+
+
+        }
+      
     }
 
 
 
-
-
-
-       public function Editportfolio($id)
+     public function Editskill($id)
     {
-         $portfolio=DB::table('portfolios')->where('id',$id)->first();
-         return view('pages.portfolio.edit_portfolio',compact('portfolio'));
+         $skill=DB::table('skills')->where('id',$id)->first();
+         return view('pages.skill.edit_skill',compact('skill'));
     }
 
 
 
 
-      public function Updateportfolio(Request $request,$id)
+
+
+     public function Updateskill(Request $request,$id)
     {
         $oldlogo=$request->old_logo;
         $data=array();
-        $data['type']=$request->type;
+       
         $data['title']=$request->title;
+        $data['description']=$request->description;
         $image=$request->file('image');
             if ($image) {
                 unlink($oldlogo);
                 $image_name= date('dmy_H_s_i');
                 $ext=strtolower($image->getClientOriginalExtension());
                 $image_full_name=$image_name.'.'.$ext;
-                $upload_path='public/portfolio/';
+                $upload_path='public/skill/';
                 $image_url=$upload_path.$image_full_name;
                 $success=$image->move($upload_path,$image_full_name);
                 $data['image']=$image_url;
-                $portfolio=DB::table('portfolios')->where('id',$id)->update($data);
+                $skill=DB::table('skills')->where('id',$id)->update($data);
                     $notification=array(
-                     'messege'=>'Successfully Image Updated ',
+                     'messege'=>'Successfully skill Updated ',
                      'alert-type'=>'success'
                     );
-                return Redirect()->route('portfolio')->with($notification);                      
+                return Redirect()->route('all.skill')->with($notification);                      
             }else{
-              $portfolio=DB::table('portfolios')->where('id',$id)->update($data);
+              $skill=DB::table('skills')->where('id',$id)->update($data);
                  $notification=array(
                      'messege'=>'Update without image!',
                      'alert-type'=>'success'
                       );
-                return Redirect()->route('portfolio')->with($notification); 
+                return Redirect()->route('all.skill')->with($notification); 
             }
     }
 
-
-
- 
-
+    
 }

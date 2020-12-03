@@ -8,9 +8,9 @@
       
       <div class="sl-pagebody">
       	   <div class="card pd-20 pd-sm-40">
-          <h6 class="card-body-title">Add Post <a href="{{ route('all.post')}} " class="btn btn-success btn-sm pull-right">Post</a></h6>
+          <h6 class="card-body-title">Add Skill <a href="{{ route('all.skill')}} " class="btn btn-success btn-sm pull-right">Skill</a></h6>
         
-          <form action="{{ route('store.post') }}" method="post" enctype="multipart/form-data">
+          <form action="{{ route('store.skill') }}" method="post" enctype="multipart/form-data">
           	@csrf
 
                   @if ($errors->any())
@@ -26,7 +26,7 @@
           <div class="form-layout">
             <div class="row mg-b-25">
 
-              <div class="col-lg-4">
+                   <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">Title: <span class="tx-danger">*</span></label>
                   <input class="form-control" type="text" name="title"  >

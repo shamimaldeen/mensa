@@ -38,6 +38,14 @@
                      </select>
                    
                   </div>
+
+
+
+                    <div class="form-group">
+                      <label class="form-control-label">Title <span class="tx-danger"></span></label>
+                      <input class="form-control" value="{{ $portfolio->title }}" type="text" name="title"  >
+                    </div>
+            
                
                 <div class="form-group">
                   <label for="exampleInputEmail1">Image</label>

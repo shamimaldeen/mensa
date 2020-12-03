@@ -20,6 +20,7 @@
                 <tr>
                   <th class="wd-15p">ID</th>
                   <th class="wd-15p">Type</th>
+                  <th class="wd-15p">Title</th>
                   <th class="wd-15p">Image</th>
                   <th class="wd-15p">Action</th>
                  
@@ -30,6 +31,7 @@
                 <tr>
                   <td>{{ $row->id }}</td>
                   <td>{{ $row->type }}</td>
+                  <td>{{ $row->title }}</td>
                   <td><img src="{{ URL::to($row->image) }}" height="70px;" width="80px;"></td>
                   <td>
                     <a href="{{ URL::to('edit/portfolio/'.$row->id) }}" class="btn btn-sm btn-info">edit</a>
@@ -85,6 +87,14 @@
                      </select>
                    
                   </div>
+
+
+              
+                <div class="form-group">
+                  <label class="form-control-label">Title: <span class="tx-danger">*</span></label>
+                  <input class="form-control" type="text" name="title"  >
+                </div>
+            
                 
                  <div class="form-group">
                   <label for="exampleInputEmail1">Image</label>

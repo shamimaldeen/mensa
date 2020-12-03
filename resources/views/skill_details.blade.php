@@ -4,7 +4,7 @@
 
 <!-- Mirrored from kiswa.net/themes/cortex/demo/demos-rtl/cortex-resume-demo-sidebar-particle-background-rtl/blog-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Nov 2020 11:48:57 GMT -->
 <head>
-    <title>Blog Details</title>
+    <title>Skill Details</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -101,13 +101,13 @@
                         <div class="first-page-text text-white-persist">
                             <div class="first-page-text-headings">
                                 <h1 class="fw-medium animated fadeInDownBig">Welcome</h1>
-                                <h1 class="display-4 fw-semi-bold animated fadeInDownBig delay-1s">Blog Details</h1>
+                                <h1 class="display-4 fw-semi-bold animated fadeInDownBig delay-1s">Skill Details</h1>
 
                                 <div class="custom-border sh-above">
                                     <div class="line-border"></div>
                                 </div>
 
-                                <p class="dash line text-white-persist-e fw-regular animated fadeInDownBig delay-2s">Home / Blog
+                                <p class="dash line text-white-persist-e fw-regular animated fadeInDownBig delay-2s">Home / Skill
                                     Details</p>
 
                                 <div class="custom-border sh-above">
@@ -177,7 +177,7 @@
         <div class="container">
             <div class="row">
 
-                @foreach($postdetails as $row)
+                @foreach($skilldetails as $row)
                 <div class="col-12">
                     <div class="blog-content p-0">
                         <div class="img-styled mb-4 px-2 px-sm-0 d-flex">
@@ -195,7 +195,7 @@
 
                                 <div class="dash line text-black-7 fw-lite">
                                     <ul class="list-inline my-3 ml-2">
-                                       <!--  <li class="list-inline-item ml-sm-5">
+                                        <!-- <li class="list-inline-item ml-sm-5">
                                             <p><i class="fa fa-calendar ml-sm-2 ml-1"></i> 12 May 2019</p>
                                         </li> -->
                                         <li class="list-inline-item ml-sm-5">
@@ -234,7 +234,7 @@
     </section>
     <!-- Blog Ends-->
 
-  <!-- Blogger Details Starts-->
+    <!-- Blogger Details Starts-->
     <section class="blogger bg-white">
         <div class="container">
             <div class="row">
@@ -261,122 +261,7 @@
     </section>
     <!-- Blogger Details Ends-->
 
-    <!-- Comments Starts-->
-    <section class="comments section-padding pb-0 bg-white">
-        <div class="container">
-            <h1 class="text-black-5 fw-semi-bold text-uppercase mt-n2">Comments</h1>
-            <div class="custom-border sh-above my-sm-5 my-4">
-                <div class="line-border"></div>
-            </div><!-- end custom-border -->
-            <div class="row">
-                <div class="col-lg-2 col-sm-5 col-7">
-                    <img src="images/commenter1.jpg" alt="commenter-image" class="img-fluid">
-                </div><!-- end column -->
-                <div class="col-lg pt-4 pt-lg-0">
-                    <div class="comment-text">
-                        <h2 class="fw-semi-bold text-black-5">John doe</h2>
-                        <h6 class="text-black-5 mt-lg-1">December 05, 2018 5:15pm</h6>
-                        <p class="text-black-5 mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                            anim id est laborum.</p>
 
-                        <a href="#"
-                            class="btn bg-gray bg-primary-colorhb px-4 text-uppercase fw-semi-bold border-0 br0 mt-4">Reply</a>
-                    </div><!-- end comment-text -->
-                </div><!-- end column -->
-            </div><!-- end row -->
-            <div class="custom-border sh-above my-sm-5 my-4">
-                <div class="line-border"></div>
-            </div><!-- end custom-border -->
-            <div class="row">
-                <div class="col-lg-2 col-sm-5 col-7">
-                    <img src="images/commenter1.jpg" alt="commenter-image" class="img-fluid">
-                </div><!-- end column -->
-                <div class="col-lg pt-4 pt-lg-0">
-                    <div class="comment-text">
-                        <h2 class="fw-semi-bold text-black-5">John doe</h2>
-                        <h6 class="text-black-5 mt-lg-1">December 05, 2018 5:15pm</h6>
-                        <p class="text-black-5 mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                            anim id est laborum.</p>
-
-                        <a href="#"
-                            class="btn bg-gray bg-primary-colorhb px-4 text-uppercase fw-semi-bold border-0 br0 mt-4">Reply</a>
-                    </div><!-- end comment-text -->
-                </div><!-- end column -->
-            </div><!-- end row -->
-            <div class="custom-border sh-above my-sm-5 my-4">
-                <div class="line-border"></div>
-            </div><!-- end custom-border -->
-            <div class="row">
-                <div class="col-lg-2 col-sm-5 col-7">
-                    <img src="images/commenter1.jpg" alt="commenter-image" class="img-fluid">
-                </div><!-- end column -->
-                <div class="col-lg pt-4 pt-lg-0">
-                    <div class="comment-text">
-                        <h2 class="fw-semi-bold text-black-5">John doe</h2>
-                        <h6 class="text-black-5 mt-lg-1">December 05, 2018 5:15pm</h6>
-                        <p class="text-black-5 mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                            anim id est laborum.</p>
-
-                        <a href="#"
-                            class="btn bg-gray bg-primary-colorhb px-4 text-uppercase fw-semi-bold border-0 br0 mt-4">Reply</a>
-                    </div><!-- end comment-text -->
-                </div><!-- end column -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </section>
-    <!-- Comments Ends-->
-
-    <!-- Comment-Form Starts-->
-    <section class="section-padding comment-form bg-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-10 mx-auto">
-                    <h1 class="text-black-5 mb-sm-5 mb-3 fw-semi-bold">Leave your Comment</h1>
-                    <form  method="post" action="#" enctype="multipart/form-data" class="needs-validation" novalidate>
-                         @csrf
-                        <div class="form-row">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control primary-border-e primary-border-eh bg-white-e"
-                                    placeholder="First name" name="fastname" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control primary-border-e primary-border-eh bg-white-e"
-                                    placeholder="Last name" name="lastname" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-6">
-                                <input type="email" class="form-control primary-border-e primary-border-eh bg-white-e"
-                                    placeholder="Email" name="email" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control primary-border-e primary-border-eh bg-white-e"
-                                    placeholder="Subject" name="subject" required>
-                            </div>
-                        </div>
-                        <textarea class="form-control primary-border-e primary-border-eh bg-white-e" rows="7"
-                            placeholder="Your comment here" name="comment" required></textarea>
-
-                        <button class="btn bg-primary-color bg-primary-colorh br0 py-2 btn-block" type="submit">Submit
-                            Comment</button>
-                    </form>
-                </div><!-- end column -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </section>
-    <!-- Comment-Form Ends-->
 
     <!-- Footer Starts  -->
     <footer class="py-5 bg-black">

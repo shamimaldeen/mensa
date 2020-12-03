@@ -311,38 +311,43 @@
     <!-- resume End  -->
 
     <!-- Skills Start  -->
-    <section class="section-padding skills position-relative overflow-hidden bg-white" id="skills">
-        <div class="custom-skills-border sh-above">
-            <div class="line-skills-border line-border1"></div>
-            <div class="line-skills-border line-border2"></div>
-            <div class="line-skills-border line-border3"></div>
-            <div class="line-skills-border line-border4"></div>
-        </div><!-- end custom-skills-border -->
+      <section class="section-padding blogs bg-white-e" id="blogs">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 mx-auto text-center">
+                <div class="col-12 text-center">
                     <div class="heading heading-margin">
-                        <div class="heading-absolute text-white-c sh-above"><span>My</span></div>
-                        <h1 class="sh-above2 position-relative"><span class="heading-border primary-color ">My</span>
-                            Skills</h1>
+                        <div class="heading-absolute text-white-c sh-above"><span>Skill</span></div>
+                        <h1 class="sh-above2 position-relative"><span
+                                class="heading-border primary-color-border primary-color">My</span> Skills</h1>
                     </div><!-- end heading -->
-                    <p class="text-black-5 para-margin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+                   <!--  <p class="text-black-5 para-margin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
                         tenetur ratione quod.
-                    </p>
+                    </p> -->
                 </div><!-- end column -->
             </div><!-- end row -->
             <div class="row">
-                <div class="col-lg-8 col-10 mx-sm-auto ml-auto fw-medium">
 
-                   @foreach($skills as $skill)
-                    <div class="pbar-wrapper">
-                        <div class="progress bg-white-c">
-                            <div class="progress-bar bg-primary-color on-bg-color pr-5 " style="width: 85%" role="progressbar">{{ $skill->name }}</div>
-                        </div><!-- end progress -->
-                        <span class="text-black">{{ $skill->percentage }}%</span>
-                    </div><!-- end pbar-wrapper -->
-                     @endforeach
+
+                @foreach($skills as $row)
+
+
+                <div class="col-md-6 col-lg">
+                    <div class="blog-block">
+                        <img src="{{ asset($row->image)}}" alt="blog-image" class="img-fluid">
+                        <div class="blog-text mt-3 primary-border-e primary-border-eh">
+
+                         
+                            <h6 class="my-3">{{ $row->title }}</h6>
+                            <p class="text-black-5">{!! substr($row->description,0,400) !!}  </p>
+                            <a href="{{ URL::to('skills/skill_details/'.$row->id) }}"
+                                class="btn bg-primary-color on-bg-color bg-primary-borderh br0 mt-4 px-3">Read
+                                More</a>
+                        </div><!-- end blog-text -->
+                    </div><!-- end blog-block -->
                 </div><!-- end column -->
+                @endforeach
+          
+         
             </div><!-- end row -->
         </div><!-- end container -->
     </section>
@@ -464,7 +469,7 @@
 
                                      
 
-
+<!-- 
                                         <div class="card border-0 filter all web">
                                             <img src="{{ asset('public/frontend/images/gallery2.jpg')}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
@@ -474,10 +479,10 @@
                                                     <a href="{{ asset('public/frontend/images/gallery2.jpg')}}" title="image-4"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
-                                                </div><!-- end meta-texts -->
-                                            </div><!-- end card-meta -->
-                                        </div><!-- end card -->
-
+                                                </div>
+                                            </div>
+                                        </div>
+ -->
 
 
 
@@ -488,8 +493,8 @@
                                             <img src="{{ asset($row->image)}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
                                                 <div class="meta-texts sh-above text-white-persist fw-light">
-                                                    <h3 class="fw-semi-bold primary-color">Project Title</h3>
-                                                    <h6 class="mt-2 mb-3">Category</h6>
+                                                    <h3 class="fw-semi-bold primary-color">{{ $row->title }}</h3>
+                                                    <h6 class="mt-2 mb-3">{{ $row->type }}</h6>
                                                     <a href="{{ asset($row->image)}}" title="image-5"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
@@ -527,8 +532,8 @@
                                             <img src="{{ asset($row->image)}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
                                                 <div class="meta-texts sh-above text-white-persist fw-light">
-                                                    <h3 class="fw-semi-bold primary-color">Project Title</h3>
-                                                    <h6 class="mt-2 mb-3">Category</h6>
+                                                    <h3 class="fw-semi-bold primary-color">{{ $row->title }}</h3>
+                                                    <h6 class="mt-2 mb-3">{{ $row->type }}</h6>
                                                     <a href="{{ asset($row->image)}}" title="image-7"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
@@ -543,8 +548,8 @@
                                             <img src="{{ asset($row->image)}}" alt="gallery-image" class="img-fluid">
                                             <div class="card-meta flex-centering text-center">
                                                 <div class="meta-texts sh-above text-white-persist fw-light">
-                                                    <h3 class="fw-semi-bold primary-color">Project Title</h3>
-                                                    <h6 class="mt-2 mb-3">Category</h6>
+                                                    <h3 class="fw-semi-bold primary-color"> {{ $row->title }}</h3>
+                                                    <h6 class="mt-2 mb-3">{{ $row->type }}</h6>
                                                     <a href="{{ asset($row->image)}}" title="image-8"
                                                         class="with-caption image-link"><span><i
                                                                 class="fa fa-plus"></i></span></a>
